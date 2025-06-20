@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Struk Pembelian</title>
+  <style>
+    :root {
+      --gold: #f5c518;
+      --dark: #222;
+      --gray: #eee;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--gray);
+      color: var(--dark);
+      max-width: 420px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 90px;
+      height: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--gold);
+      margin: 5px 0;
+      letter-spacing: 1px;
+    }
+
+    p {
+      text-align: center;
+      margin: 3px 0;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: var(--gold);
+      color: white;
+      text-align: left;
+      padding: 8px;
+    }
+
+    td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .total-row td {
+      font-weight: bold;
+      font-size: 15px;
+      border-top: 2px solid var(--dark);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      font-style: italic;
+      font-size: 13px;
+      color: #666;
+    }
+
+    #print-btn {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: var(--gold);
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media print {
+      #print-btn {
+        display: none;
+      }
+      body {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="majuhardware.jpeg">
+  </div>
+
+  <h2>MAJU HARDWARE</h2>
+  <p>Jl. Contoh No.123, Madiun</p>
+  <p>Tanggal: <span id="tanggal"></span> | Kasir: Andi</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Barang</th>
+        <th>Qty</th>
+        <th>Harga</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>HP Xiaomi</td>
+        <td>1</td>
+        <td>Rp2.499.000</td>
+        <td>Rp2.499.000</td>
+      </tr>
+      <tr>
+        <td>Tempered Glass</td>
+        <td>1</td>
+        <td>Rp80.000</td>
+        <td>Rp80.000</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3" style="text-align:right;">Total</td>
+        <td>Rp2.579.000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="footer">Terima kasih telah berbelanja di Maju Hardware!<br>Barang yang sudah dibeli tidak dapat dikembalikan.</p>
+
+  <button id="print-btn" onclick="window.print()">🧾 Cetak Struk</button>
+
+  <script>
+    document.getElementById("tanggal").innerText = new Date().toLocaleDateString("id-ID");
+  </script>
+
+</body>
+</html>
